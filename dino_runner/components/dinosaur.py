@@ -1,11 +1,11 @@
 class Dinosaur:
-    def __init__():
+    def __init__(self):
+        self.jump_height = 200
+    
+
+    def update(self):
         pass
     
 
-    def update():
-        pass
-    
-
-    def draw():
+    def draw(self):
         pass
