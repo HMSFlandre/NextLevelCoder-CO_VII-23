@@ -4,4 +4,4 @@ if __name__ == "__main__":
     game = Game()
     game.run()
 
-# TODO: Add birds + more obstacles
+# TODO: Add birds + 1 more obstacles

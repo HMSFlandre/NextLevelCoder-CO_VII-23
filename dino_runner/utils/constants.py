@@ -61,6 +61,15 @@ BIRD = [
     pygame.image.load(os.path.join(IMG_DIR, "Bird/Bird2.png")),
 ]
 
+BULLETS = [
+    pygame.image.load(os.path.join(IMG_DIR, "Spell/BulletYellow.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Spell/BulletBlue.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Spell/BulletRed.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Spell/BulletBlack.png")),
+]
+
+SPELL_CIRCLE = pygame.image.load(os.path.join(IMG_DIR, "Spell/SpellCircle.png"))
+
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 MOYAI = pygame.image.load(os.path.join(IMG_DIR, 'Other/Moyai.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))

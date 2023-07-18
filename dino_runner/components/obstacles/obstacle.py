@@ -7,8 +7,8 @@ class Obstacle(Sprite):
         self.rect = self.sprite.get_rect()
         self.rect.x = SCREEN_WIDTH
     
-    def update(self, game_speed):
-        self.rect.x -= game_speed
+    def update(self, game):
+        self.rect.x -= game.game_speed
         return self.rect.x >= -self.sprite.get_width()
 
     def draw(self, screen):
