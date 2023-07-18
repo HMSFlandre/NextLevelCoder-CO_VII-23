@@ -69,6 +69,7 @@ BULLETS = [
 ]
 
 SPELL_CIRCLE = pygame.image.load(os.path.join(IMG_DIR, "Spell/SpellCircle.png"))
+CHEN = pygame.image.load(os.path.join(IMG_DIR, "Chen/Chen.png"))
 
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 MOYAI = pygame.image.load(os.path.join(IMG_DIR, 'Other/Moyai.png'))

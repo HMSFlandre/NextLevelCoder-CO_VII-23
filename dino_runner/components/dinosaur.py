@@ -5,7 +5,7 @@ from dino_runner.utils.constants import (RUNNING, DUCKING, JUMPING)
 
 class Dinosaur:
 
-    POS_X = 80
+    POS_X = 130
     POS_Y = 300
     DUCKING_POS_Y = 335
     JUMP_VEL = 8.5

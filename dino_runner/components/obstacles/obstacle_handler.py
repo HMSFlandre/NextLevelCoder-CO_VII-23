@@ -1,6 +1,7 @@
 from dino_runner.components.obstacles.cactus import Cactus
 from dino_runner.components.obstacles.spell import Spell
 from dino_runner.components.obstacles.pterodactyl import Pterodactyl
+from dino_runner.components.obstacles.chen import Chen
 
 import random
 
@@ -15,7 +16,7 @@ class ObstacleHandler:
         self.has_obstacle = self.obstacle.update(game)
     
     def create_obstacle(self):
-        self.obstacle = Spell()  # random.choice([Cactus(), Spell(), Pterodactyl()])
+        self.obstacle = random.choice([Cactus(), Spell(), Pterodactyl(), Chen()])
         self.has_obstacle = True
     
     def draw(self, screen):

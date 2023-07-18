@@ -4,8 +4,8 @@ from dino_runner.utils.constants import BULLETS
 import pygame
 
 class Bullet(Obstacle):
-    def __init__(self, color, pos, vel):
-        self.speed = 25
+    def __init__(self, color, pos, vel, speed=25):
+        self.speed = speed
         self.vel = vel
         if color < 0:
             color = 0
