@@ -63,8 +63,6 @@ class Dinosaur:
     
     
     def collision(self, object):
-        if self.protoshield:
-            return self.shield_hitbox.colliderect(object.rect)
         if self.graze > 0:
             return self.small_hitbox.colliderect(object.rect)
         else:
