@@ -13,7 +13,11 @@ class ObstacleHandler:
     def update(self, game):
         if not self.has_obstacle:
             self.create_obstacle()
+        elif self.obstacle.dead:
+            self.create_obstacle()
+        self.has_obstacle = self.obstacle.dead
         self.has_obstacle = self.obstacle.update(game)
+        self.obstacle.collision(game)
     
     def create_obstacle(self):
         self.obstacle = random.choice([Cactus(), Spell(), Pterodactyl(), Chen()])

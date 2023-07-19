@@ -15,6 +15,9 @@ class Spell(Obstacle):
     def update(self, game):
         for bullet in self.bullets:
             bullet.update(game)
+            bullet.collision(game)
+            if bullet.dead:
+                self.bullets.remove(bullet)
         self.timer += 1
         player_dir = pygame.Vector2(
             game.player.rect.centerx - self.rect.centerx,

@@ -68,12 +68,14 @@ BULLETS = [
     pygame.image.load(os.path.join(IMG_DIR, "Spell/BulletBlack.png")),
 ]
 
+HITBOX = pygame.image.load(os.path.join(IMG_DIR, "Other/Hitbox.png"))
 SPELL_CIRCLE = pygame.image.load(os.path.join(IMG_DIR, "Spell/SpellCircle.png"))
 CHEN = pygame.image.load(os.path.join(IMG_DIR, "Chen/Chen.png"))
 
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 MOYAI = pygame.image.load(os.path.join(IMG_DIR, 'Other/Moyai.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
+P_SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/ProtoShield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))

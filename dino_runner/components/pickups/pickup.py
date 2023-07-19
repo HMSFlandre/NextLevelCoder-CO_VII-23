@@ -1,27 +1,25 @@
-from pygame.sprite import Sprite
-from dino_runner.utils.constants import (SCREEN_WIDTH, SCREEN_HEIGHT)
+from dino_runner.utils.constants import SCREEN_WIDTH
 
-class Obstacle(Sprite):
+from pygame.sprite import Sprite
+import random
+
+class Pickup(Sprite):
     def __init__(self, sprite):
-        self.dead = False
+        self.appear_chance = 0.06
         self.sprite = sprite
         self.rect = self.sprite.get_rect()
         self.rect.x = SCREEN_WIDTH
-    
+        self.rect.y = 300
+
     def update(self, game):
         self.rect.x -= game.game_speed
         return self.rect.x >= -self.sprite.get_width()
     
     def collision(self, game):
-        if game.player.collision(self):
-            if not game.player.protoshield:
-                game.playing = False
-            else:
-                game.player.protoshield = False
-                self.kill()
-
-    def kill(self):
-        self.dead = True
+        return game.player.collision(self)
+    
+    def appear(self):
+        return random.randrange(0, 100) <= self.appear_chance
 
     def draw(self, screen):
         screen.blit(self.sprite, self.rect)

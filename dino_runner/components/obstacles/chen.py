@@ -16,6 +16,9 @@ class Chen(Obstacle):
     def update(self, game):
         for bullet in self.bullets:
             bullet.update(game)
+            bullet.collision(game)
+            if bullet.dead:
+                self.bullets.remove(bullet)
         
         spawn_pos = pygame.Vector2(self.rect.centerx, self.rect.centery)
 

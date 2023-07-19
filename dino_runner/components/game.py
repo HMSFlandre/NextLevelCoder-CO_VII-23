@@ -1,5 +1,6 @@
 import pygame
 from dino_runner.components.obstacles.obstacle_handler import ObstacleHandler
+from dino_runner.components.pickups.pickup_handler import PickupHandler
 
 from dino_runner.utils.constants import (
     BG, 
@@ -29,6 +30,7 @@ class Game:
         self.player = Dinosaur()
         self.bg_extras = Bg_elements()
         self.obstacle_handler = ObstacleHandler()
+        self.pickup_handler = PickupHandler()
 
     def run(self):
         # Game loop: events - update - draw
@@ -48,6 +50,7 @@ class Game:
         self.bg_extras.update(self.game_speed)
         self.player.update(pygame.key.get_pressed())
         self.obstacle_handler.update(self)
+        self.pickup_handler.update(self)
 
     def draw(self):
         self.clock.tick(FPS)
@@ -56,6 +59,7 @@ class Game:
         self.bg_extras.draw(self.screen)
         self.player.draw(self.screen)
         self.obstacle_handler.draw(self.screen)
+        self.pickup_handler.draw(self.screen)
         pygame.display.update()
         pygame.display.flip()
 
