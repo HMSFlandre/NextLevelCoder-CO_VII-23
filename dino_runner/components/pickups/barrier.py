@@ -6,7 +6,7 @@ import random
 class Barrier(Pickup):
     def __init__(self):
         super().__init__(S_BARRIER)
-        self.appear_chance = 4
+        self.appear_chance = 3.5
         self.rect.y = random.randrange(180, 360) - self.sprite.get_height()
     
     def collision(self, game):

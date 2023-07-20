@@ -43,6 +43,8 @@ class Dinosaur:
         else:
             self.skull = SKULLS[1]
 
+        if self.continuous_point_collection < 0:
+            self.continuous_point_collection = 0
         if self.continuous_point_collection > 10:
             self.continuous_point_collection = 10
 
@@ -63,7 +65,7 @@ class Dinosaur:
         self.small_hitbox.x = self.rect.centerx - (self.small_hitbox.width/2)
         self.small_hitbox.y = self.rect.centery - (self.small_hitbox.height/2)
 
-        self.shield_hitbox.x = self.rect.right + (self.shield_hitbox.width/3)
+        self.shield_hitbox.x = self.rect.right - (self.shield_hitbox.width/3)
         self.shield_hitbox.y = self.rect.centery - (self.shield_hitbox.height/2)
 
         if user_input[pygame.K_DOWN] and not self.jumping:
@@ -104,7 +106,7 @@ class Dinosaur:
 
 
     def barrier_collision(self, object):
-        barrier_size = 140
+        barrier_size = 120
         if self.barrier > 0:
             return pygame.Rect(self.rect.centerx - (barrier_size/2), 
                 self.rect.centery - (barrier_size/2), 
@@ -118,8 +120,8 @@ class Dinosaur:
         if self.protoshield > 0:
             screen.blit(P_SHIELD, self.shield_hitbox)
         if self.barrier > 0:
-            base_pos = pygame.Vector2((70 + (self.skull.get_rect().width/2)) * (
-                1 - self.map(self.skull_step, 0, 45, 0, 0.4, True)), 0).rotate(
+            base_pos = pygame.Vector2((60 + (self.skull.get_rect().width/2)) * (
+                1 - self.map(self.skull_step, 0, 45, 0, 0.35, True)), 0).rotate(
                 self.map(self.skull_step, 0, 45, 0, 360, True))
             for i in range(4):
                 base_pos = base_pos.rotate(90*i)

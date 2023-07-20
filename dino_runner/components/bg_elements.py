@@ -20,7 +20,7 @@ class Bg_elements:
     moyai_x = [random.randrange(0, 5000), random.randrange(0, 5000), random.randrange(0, 5000)]
 
     def update(self, game):
-        self.daytime += 1
+        self.daytime += 5
         if self.daytime > 2880:
             self.daytime = 0
         # print("Time:", str(int(self.map(self.daytime, 0, 2880, 0, 24))))
