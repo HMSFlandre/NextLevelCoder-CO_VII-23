@@ -27,7 +27,7 @@ class Dinosaur:
         self.continuous_point_collection = 1
         self.graze = 0
         self.protoshield = 0
-        self.barrier = 600
+        self.barrier = 0
         self.running = True
         self.ducking = False
         self.jumping = False
