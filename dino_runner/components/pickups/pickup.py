@@ -5,7 +5,7 @@ import random
 
 class Pickup(Sprite):
     def __init__(self, sprite):
-        self.appear_chance = 0.06
+        self.appear_chance = 0.006
         self.sprite = sprite
         self.rect = self.sprite.get_rect()
         self.rect.x = SCREEN_WIDTH
@@ -16,10 +16,10 @@ class Pickup(Sprite):
         return self.rect.x >= -self.sprite.get_width()
     
     def collision(self, game):
-        return game.player.collision(self)
+        return game.player.pickup_collision(self)
     
     def appear(self):
-        return random.randrange(0, 100) <= self.appear_chance
+        return random.randrange(0, 100000) <= (self.appear_chance * 100)
 
     def draw(self, screen):
         screen.blit(self.sprite, self.rect)

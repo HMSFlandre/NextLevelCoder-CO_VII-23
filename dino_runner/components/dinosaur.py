@@ -19,16 +19,20 @@ class Dinosaur:
         self.rect.x = 80
         self.rect.y = self.POS_Y
         self.step_index = 0
-        self.lives = 1
+        self.continuous_point_collection = 1
         self.graze = 0
-        self.protoshield = True
+        self.protoshield = 0
         self.running = True
         self.ducking = False
         self.jumping = False
         self.jump_speed = self.JUMP_VEL
+        self.has_powerup = self.protoshield > 0 or self.graze > 0
     
 
     def update(self, user_input):
+        if self.continuous_point_collection > 10:
+            self.continuous_point_collection = 10
+
         if self.graze > 0:
             self.graze -= 1
 
@@ -60,20 +64,30 @@ class Dinosaur:
         
         if self.step_index > 10:
             self.step_index = 0
-    
+
+
+    def pickup_collision(self, object):
+        return self.rect.colliderect(object.rect)
     
     def collision(self, object):
         if self.graze > 0:
             return self.small_hitbox.colliderect(object.rect)
         else:
             return self.rect.colliderect(object.rect)
+    
+
+    def shield_collision(self, object):
+        if self.protoshield > 0:
+            return self.shield_hitbox.colliderect(object.rect)
+        else:
+            return False
 
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
         if self.graze > 0:
             screen.blit(HITBOX, self.small_hitbox)
-        if self.protoshield:
+        if self.protoshield > 0:
             screen.blit(P_SHIELD, self.shield_hitbox)
     
 

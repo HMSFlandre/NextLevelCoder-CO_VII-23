@@ -19,8 +19,11 @@ from dino_runner.components.bg_elements import Bg_elements
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.font.init()
         pygame.display.set_caption(TITLE)
         pygame.display.set_icon(ICON)
+        self.font = pygame.font.SysFont('Comic Sans MS', 20)
+        self.score = 0
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
         self.playing = False
@@ -47,12 +50,16 @@ class Game:
                 self.playing = False
 
     def update(self):
+        self.score += 1
+        if self.score < 0:
+            self.score = 0
         self.bg_extras.update(self.game_speed)
         self.player.update(pygame.key.get_pressed())
         self.obstacle_handler.update(self)
         self.pickup_handler.update(self)
 
     def draw(self):
+        score_text = self.font.render("Score: " + str(self.score), False, (0, 0, 0))
         self.clock.tick(FPS)
         self.screen.fill((255, 255, 255))
         self.draw_background()
@@ -60,6 +67,7 @@ class Game:
         self.player.draw(self.screen)
         self.obstacle_handler.draw(self.screen)
         self.pickup_handler.draw(self.screen)
+        self.screen.blit(score_text, (10, 20))
         pygame.display.update()
         pygame.display.flip()
 

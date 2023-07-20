@@ -75,6 +75,8 @@ CHEN = pygame.image.load(os.path.join(IMG_DIR, "Chen/Chen.png"))
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 MOYAI = pygame.image.load(os.path.join(IMG_DIR, 'Other/Moyai.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
+GRAZE = pygame.image.load(os.path.join(IMG_DIR, 'Other/Graze.png'))
+POINT = pygame.image.load(os.path.join(IMG_DIR, 'Other/Point.png'))
 P_SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/ProtoShield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
