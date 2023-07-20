@@ -18,7 +18,7 @@ class Bullet(Obstacle):
     
     def collision(self, game):
         if game.player.barrier_collision(self):
-            game.player.barrier -= 30
+            game.player.barrier -= 60
             game.player.continuous_point_collection -= 4
             self.kill()
             return

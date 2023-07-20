@@ -100,5 +100,7 @@ BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 SHIELD_SILOUETTE = pygame.image.load(os.path.join(IMG_DIR, 'Other/ShieldShilouette.png'))
+SKULL_BAR = pygame.image.load(os.path.join(IMG_DIR, 'Other/SkullBar.png'))
+BAR_FILL = pygame.image.load(os.path.join(IMG_DIR, 'Other/BarFill.png'))
 
 DEFAULT_TYPE = "default"

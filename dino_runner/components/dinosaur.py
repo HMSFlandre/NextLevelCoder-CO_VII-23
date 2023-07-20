@@ -4,7 +4,8 @@ from pygame.sprite import Sprite
 from dino_runner.utils.constants import (
     RUNNING, DUCKING, JUMPING, 
     HITBOX, P_SHIELD, SCREEN_HEIGHT, 
-    SHIELD_SILOUETTE, SKULLS)
+    SCREEN_WIDTH, SHIELD_SILOUETTE, SKULLS, 
+    SKULL_BAR, BAR_FILL)
 from dino_runner.components.obstacles.obstacle import Obstacle
 
 class Dinosaur:
@@ -54,6 +55,8 @@ class Dinosaur:
         if self.barrier > 0:
             self.skull_step += 1
             self.barrier -= 1
+            if self.barrier > 600:
+                self.barrier = 600
 
         if self.jumping:
             self.jump()
@@ -130,6 +133,10 @@ class Dinosaur:
     
     def draw_ui(self, screen):
         font = pygame.font.SysFont('Comic Sans MS', 15)
+        bar_pos = (SCREEN_WIDTH - 170, SCREEN_HEIGHT - 40)
+        screen.blit(SKULL_BAR, bar_pos)
+        for i in range(int(self.map(self.barrier, 0, 600, 0, 27, True))):
+            screen.blit(BAR_FILL, (bar_pos[0] + 36 + (4*i), bar_pos[1] + 8))
         if self.protoshield > 0:
             shield_text = font.render("Shield", False, (127, 127, 127))
             screen.blit(shield_text, (20, SCREEN_HEIGHT - 80))

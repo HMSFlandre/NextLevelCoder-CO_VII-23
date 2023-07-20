@@ -12,7 +12,7 @@ class Barrier(Pickup):
     def collision(self, game):
         if game.player.pickup_collision(self):
             if game.player.barrier <= 0:
-                game.player.barrier = 300
+                game.player.barrier = 600
             else: 
                 game.player.barrier += 150
             return True
