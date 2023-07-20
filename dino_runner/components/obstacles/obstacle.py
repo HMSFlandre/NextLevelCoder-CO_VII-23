@@ -13,6 +13,12 @@ class Obstacle(Sprite):
         return self.rect.x >= -self.sprite.get_width()
     
     def collision(self, game):
+        if game.player.barrier_collision(self):
+            game.player.barrier -= 60
+            game.player.continuous_point_collection = 1
+            self.kill()
+            return
+        
         if game.player.shield_collision(self):
             game.player.protoshield -= 1
             game.score -= (500 + int(game.score / 100))

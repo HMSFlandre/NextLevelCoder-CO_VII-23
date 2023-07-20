@@ -53,20 +53,22 @@ class Game:
         self.score += 1
         if self.score < 0:
             self.score = 0
-        self.bg_extras.update(self.game_speed)
+        self.bg_extras.update(self)
         self.player.update(pygame.key.get_pressed())
         self.obstacle_handler.update(self)
         self.pickup_handler.update(self)
 
     def draw(self):
-        score_text = self.font.render("Score: " + str(self.score), False, (0, 0, 0))
+        score_text = self.font.render("Score: " + str(self.score), False, (127, 127, 127))
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
+        self.screen.fill(self.bg_extras.chose_color())
+        self.bg_extras.draw_back(self.screen)
         self.draw_background()
         self.bg_extras.draw(self.screen)
         self.player.draw(self.screen)
         self.obstacle_handler.draw(self.screen)
         self.pickup_handler.draw(self.screen)
+        self.player.draw_ui(self.screen)
         self.screen.blit(score_text, (10, 20))
         pygame.display.update()
         pygame.display.flip()

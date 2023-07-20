@@ -1,6 +1,7 @@
 from dino_runner.components.pickups.shield import Shield
 from dino_runner.components.pickups.graze import Graze
 from dino_runner.components.pickups.point import Point
+from dino_runner.components.pickups.barrier import Barrier
 
 import random
 
@@ -17,7 +18,7 @@ class PickupHandler:
                 self.pickups.remove(pickup)
     
     def create_pickup(self):
-        for pickup in [Shield(), Graze(), Point()]:
+        for pickup in [Shield(), Graze(), Point(), Barrier()]:
             if pickup.appear():
                 self.pickups.append(pickup)
     

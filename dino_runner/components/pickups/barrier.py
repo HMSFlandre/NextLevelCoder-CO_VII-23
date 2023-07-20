@@ -1,17 +1,20 @@
 from dino_runner.components.pickups.pickup import Pickup
-from dino_runner.utils.constants import GRAZE
+from dino_runner.utils.constants import S_BARRIER
 
 import random
 
-class Graze(Pickup):
+class Barrier(Pickup):
     def __init__(self):
-        super().__init__(GRAZE)
-        self.appear_chance = 8
+        super().__init__(S_BARRIER)
+        self.appear_chance = 4
         self.rect.y = random.randrange(180, 360) - self.sprite.get_height()
     
     def collision(self, game):
         if game.player.pickup_collision(self):
-            game.player.graze = 300
+            if game.player.barrier <= 0:
+                game.player.barrier = 300
+            else: 
+                game.player.barrier += 150
             return True
         else:
             return False
