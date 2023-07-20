@@ -79,7 +79,6 @@ class Bg_elements:
         elif self.daytime >= pure_night + 1 or self.daytime <= pure_day - morning_gap - 1:
             number = 0
         else:
-            # TODO: Make it more smooth
             if self.daytime >= pure_night - dawn_gap and self.daytime <= pure_night:
                 # Night Night
                 number = self.map(self.daytime, pure_night, pure_night - morning_gap, 0, 255, True)
